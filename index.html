@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Raleway:wght@400;500&display=swap"
+            rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
+    <!-- or the reference on CDN -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.3.1/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.3.1/dist/css/themes/splide-default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.3.1/dist/css/splide-core.min.css">-->
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <!--<link rel="stylesheet" href="assets/css/splider.css">-->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="body">
+<button id="toTop" class="btn btn-warning position-fixed d-none m-3  bottom-0 end-0 z-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffc107" stroke="#fff"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+</button>
+<div id="humburger" class="d-none"></div>
+
+<header x-data="{iconmenu:$store.svg.menuSvgIcon, open:false}">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white flex-column pt-0 pb-3 py-sm-3">
+        <div class="container-xxl">
+            <!--<button class="navbar-toggle end-6 top-10 border-0 d-sm-none position-absolute z-2"
+                    :class="open ? 'bg-position-close btn-close-white active bg-transparent':''"
+                    @click="open = !open" > <span></span> <span></span> <span></span> </button>-->
+            <div class="row flex-column flex-sm-row w-100 justify-content-between align-items-center my-2">
+                <div class="col col-lg-3">
+                    <div class="row position-relative align-items-center justify-content-between">
+                        <a href="/" class="navbar-brand stretched-link position-absolute w-100 h-100"></a>
+                        <div class="col-3 col-sm-auto col-lg-5">
+                            <img src="./assets/img/svg/placeholder.svg"
+                                 data-src="./assets/img/logo.webp"
+                                 data-srcset="./assets/img/logo.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col-3 col-lg-7 d-none d-md-block">
+                            <p class="fw-bold text-center text-sm-start fs-6 lh-sm my-auto">Международная сеть детских
+                                садов</p>
+                        </div>
+                        <div class="svg col-auto d-lg-none" x-data="{icon:$store.svg.phoneSvgIcon}">
+                            <a href="tel:+84956643739" class="d-flex align-items-center text-decoration-none">
+                                <span x-html="icon"></span>
+                                <span class="fs-4 fw-bold text-dark ms-3">8(495) 664 37 39</span></a>
+                        </div>
+
+                        <div class="col-auto p-0" style="margin-top:-8px;">
+                            <button class="navbar-toggle border-0 d-lg-none z-3 position-relative"
+                                    :class="open ? 'bg-position-close btn-close-white active bg-transparent':''"
+                                    @click="open = !open"><span></span> <span></span> <span></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto col-md-6 col-xxl-5 d-none d-lg-block">
+                    <div class="row flex-column flex-sm-row justify-content-center justify-content-sm-end align-items-center">
+                        <div class="svg col-auto me-3 pb-3 pb-md-0 d-none d-lg-block"
+                             x-data="{icon:$store.svg.phoneSvgIcon}">
+                            <a href="tel:+84956643739" class="d-flex align-items-center text-decoration-none">
+                                <span x-html="icon"></span>
+                                <span class="fs-4 fw-bold text-dark ms-3">8(495) 664 37 39</span></a>
+                        </div>
+                        <div class="col-auto col-md-6">
+                            <div class="row justify-content-center gx-4">
+                                <button type="button"
+                                        class="btn btn-danger text-uppercase text-white py-3 fw-bold fs-6 lh-sm bg-gradient-danger btn-lg">
+                                    Заказать звонок
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <menu class="nav justify-content-center w-100 d-none d-lg-flex gx-5">
+            <li class="nav-item">
+                <a class="nav-link active fw-bold fs-6 lh-sm text-dark" aria-current="page" href="#">О BINNY</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fw-bold fs-6 lh-sm text-dark" href="#">Открываем детский сад</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fw-bold fs-6 lh-sm text-dark" href="#">Все про деньги</a>
+            </li>
+        </menu>
+    </nav>
+    <nav x-show="open" class="navbar position-absolute start-0 top-0 w-100 p-0 h-100 z-2" x-transition>
+        <menu class="nav flex-column  justify-content-center align-content-center d-lg-none m-0 bg-brown w-100 h-100 p-5">
+            <li class="col-auto nav-item">
+                <a class="nav-link active text-dark text-uppercase text-white text-center fw-bold fs-6 lh-sm m-auto"
+                   aria-current="page"
+                   href="#">О binny</a>
+            </li>
+            <li class="col-auto nav-item">
+                <a class="nav-link text-dark text-uppercase text-center text-white fw-bold fs-6 lh-sm  m-auto" href="#">Открываем
+                    детский сад</a>
+            </li>
+            <li class="col-auto nav-item">
+                <a class="nav-link text-dark text-uppercase text-center text-white fw-bold fs-6 lh-sm m-auto" href="#">Все
+                    про
+                    деньги</a>
+            </li>
+        </menu>
+    </nav>
+</header><div class="section__header text-center position-relative" style="background-image: url(./assets/img/header_bg.webp);">
+    <div class="container-xxl">
+        <div class="row justify-content-md-start py-4">
+            <div class="col-auto col-md-7 col-lg-5">
+                <div class="d-flex flex-column">
+                    <h2 class="fs-1 fw-bolder text-start mb-md-4 w-75">
+                        ФРАНШИЗА ДЕТСКОГО САДА
+                    </h2>
+                    <div class="col-auto mt-2 mb-md-4">
+                        <p class="fs-3 text-start fw-bolder lh-sm">Открой уютный детский садик, с доходностью <span
+                                class="text-danger">от 373 000 ₽</span> в месяц</p>
+                    </div>
+                    <div class="col-auto d-md-none" style="height: 15rem;">
+                    </div>
+                    <div class="col-auto mb-1">
+                        <p class="text-start lh-sm fst-italic">Команда Binny — пожалуй, единственная франшиза в России,
+                            которая заботится
+                            и поддерживает Вас ежедневно и круглый год!</p>
+                    </div>
+                    <div class="col text-start position-relative mt-3">
+                        <img src="./assets/img/svg/placeholder.svg"
+                             data-src="./assets/img/book.webp"
+                             data-srcset="./assets/img/book.webp"
+                             loading="lazy" alt="binny" title="native place"
+                             class="img-fluid m-auto w-15 d-block position-absolute z-1 start-10 top-40 translate-middle lazy">
+                        <button type="button"
+                                class="btn btn-dangertext-uppercase w-100 text-white text-uppercase py-3 fw-bold fs-6 lh-sm bg-gradient-danger btn-lg z-0">
+                            Получить бизнес-план
+                        </button>
+                    </div>
+                    <div class="col text-start mt-3">
+                        <button type="button"
+                                class="btn btn-outline-danger text-uppercase w-100 text-danger py-3 fw-bold fs-6 lh-sm btn-lg">
+                            Получить консультацию
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="section__you-get text-center position-relative">
+    <div class="container-xxl py-5">
+        <h2 class="display-7 fw-bolder text-start mb-4">
+            Что вы получаете
+        </h2>
+        <div class="row row-cols-md-3 justify-content-start py-4">
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h3 class="fs-5 fw-bold text-start mb-3">Тренинги для руководителей</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A second list item A second list item A second list item A second list item
+                    </li>
+                    <li class="d-flex justify-content-start align-items-start text-start mb-3">
+                        <img src="./assets/img/svg/placeholder-18x18.svg"
+                             data-src="./assets/img/okay.webp"
+                             data-srcset="./assets/img/okay.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-3 mt-1 d-block lazy">
+                        A third list item A second list item A second list item A second list item
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><section class="section__invite-you py-3" style="background-image: url(./assets/img/fone_4.webp);">
+    <div class="container-xxl py-3">
+        <div class="card mb-3 border-0 bg-transparent">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="./assets/img/svg/placeholder-650x429.svg"
+                         data-src="./assets/img/photo_4.webp"
+                         data-srcset="./assets/img/photo_4.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid me-1 d-block lazy">
+                </div>
+                <div class="col-md-7">
+                    <div class="d-flex flex-column bg-white">
+                        <div class="card-body mb-3 card__border_red position-relative ps-4 pt-3 pt-lg-0">
+                            <h2 class="fw-bold">Приглашаем Вас на виртуальную экскурсию в Binny native place</h2>
+                            <p class="card-text">Мы создаем уникальные детские сады, в которые влюбляются все, не
+                                зависимо от возраста.</p>
+                        </div>
+                        <div class="card-body ps-0">
+                            <ul class="list-group list-group-flush ps-4">
+                                <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                                    Уникальный современный дизайн, который соответствует концепции экологичности
+                                </li>
+                                <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                                    Уникальный современный дизайн, который соответствует концепции экологичности
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col col-lg-6 text-start mt-3 p-3">
+                            <button type="button"
+                                    class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 fw-bold fs-6 lh-sm btn-lg">
+                                Получить консультацию
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><div class="section__you-get text-center position-relative">
+    <div class="container-xxl py-5">
+        <h2 class="display-7 fw-bolder text-start text-sm-center text-md-start mb-4">
+            Как стать частью нашей команды
+        </h2>
+        <div class="row row-cols-1 row-cols-md-2 justify-content-center justify-content-md-start py-4">
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 mb-3 position-relative ps-lg-5 pt-5">
+                <img src="./assets/img/svg/placeholder-18x18.svg"
+                     data-src="./assets/img/01.webp"
+                     data-srcset="./assets/img/01.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid position-absolute top-0 start-0 ms-3 d-block lazy z-0">
+                <div class="position-relative z-01">
+                    <h3 class="fs-5 fw-bold text-start mb-3">Оставляете заявку на сайте и получаете материалы
+                        франшизы:</h3>
+                    <!--class list [list-group_red, list-group_green, list-group_orange, list-group_brown] -->
+                    <ul class="list-group list-group-flush ps-4">
+                        <li class="list-group_green d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Финансовую модель
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Рекомендации по выбору места для будущего сада
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Презентацию интерьеров Binny
+                        </li>
+                        <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3">
+                            Маркетинг-кит с пошаговым планом запуска сада
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="section__banner-map text-center position-relative"
+     style="background-image: url(./assets/img/background_map.webp);">
+    <div class="container-xxl py-4">
+        <div class="card flex-lg-row row-cols-2 justify-content-between align-items-center bg-transparent border-0">
+            <div class="col-12 col-sm-auto">
+                <div class="card-body">
+                    <p class="fs-3 fw-bolder lh-sm text-white text-center text-lg-start">
+                        Это не просто слова.
+                        <br>
+                        Это знания и опыт открытия 117 частных
+                        <br>
+                        детских садов по всей России и СНГ за 5 лет!
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <img src="./assets/img/svg/placeholder-463x203.svg"
+                     data-src="./assets/img/map.webp"
+                     data-srcset="./assets/img/map.webp"
+                     loading="lazy" alt="binny" title="native place"
+                     class="img-fluid mx-auto w-100 d-block lazy z-0">
+            </div>
+        </div>
+    </div>
+</div><div class="section__stages-opening text-center position-relative overflow-hidden bg-light">
+    <div class="container-xxl py-5">
+        <h2 class="display-7 fw-bolder text-start mb-4">
+            Этапы открытия
+        </h2>
+        <h3 class="fs-4 fw-bold text-start mb-4">2-2,5 месяца до открытия Вашего сада</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-start py-4">
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 px-sm-3 pt-5 pb-3">
+                    <h4 class="text-end text-danger fw-bolder">1 этап</h4>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4">Закупки</h5>
+                        <p class="card-text lh-sm fs-7 text-start">Осуществляем заказ материалов и мебели для ремонта и
+                            оформления сада без
+                            наценок, напрямую у надежных подрядчиков</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 px-sm-3 pt-5 pb-3">
+                    <h4 class="text-end text-danger fw-bolder">1 этап</h4>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4">Закупки</h5>
+                        <p class="card-text lh-sm fs-7 text-start">Осуществляем заказ материалов и мебели для ремонта и
+                            оформления сада без
+                            наценок, напрямую у надежных подрядчиков</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 px-sm-3 pt-5 pb-3">
+                    <h4 class="text-end text-danger fw-bolder">1 этап</h4>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4">Закупки</h5>
+                        <p class="card-text lh-sm fs-7 text-start">Осуществляем заказ материалов и мебели для ремонта и
+                            оформления сада без
+                            наценок, напрямую у надежных подрядчиков</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 px-sm-3 pt-5 pb-3">
+                    <h4 class="text-end text-danger fw-bolder">1 этап</h4>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4">Закупки</h5>
+                        <p class="card-text lh-sm fs-7 text-start">Осуществляем заказ материалов и мебели для ремонта и
+                            оформления сада без
+                            наценок, напрямую у надежных подрядчиков</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-md-4 justify-content-start d-none d-lg-flex">
+            <div class="col p-0">
+                <div class="line position-relative m-0"></div>
+            </div>
+            <div class="col p-0">
+                <div class="line position-relative m-0"></div>
+            </div>
+            <div class="col p-0">
+                <div class="line position-relative m-0"></div>
+            </div>
+            <div class="col p-0">
+                <div class="line position-relative m-0"></div>
+            </div>
+        </div>
+    </div>
+</div><section class="section__start-business py-3">
+    <div class="container-xxl py-3">
+        <div class="card mb-3 border-0 bg-transparent">
+            <div class="row row-cols-1 row-cols-md-2 justify-content-start">
+                <div class="col-auto mb-5 mb-sm-0">
+                    <div class="d-flex flex-column bg-white">
+                        <div class="card-body mb-3 card__border_red position-relative">
+                            <h2 class="display-6 fw-bold mb-4">Получите нашу команду на открытие бизнеса</h2>
+                            <p class="fs-5 lh-sm fw-bold">И развивайте бизнес, помогающий будущему поколению деток
+                                вырасти здоровым, интеллектуально-развитыми и социально-адаптированными</p>
+                        </div>
+                        <div class="card-body ps-0">
+                            <ul class="list-group list-group-flush ps-4">
+                                <li class="d-flex justify-content-start align-items-center text-start mb-3">
+                                    <img src="./assets/img/svg/placeholder-47x47.svg"
+                                         data-src="./assets/img/calendar.webp"
+                                         data-srcset="./assets/img/calendar.webp"
+                                         loading="lazy" alt="binny" title="native place"
+                                         class="img-fluid me-3 d-block lazy">
+                                    Откройте свой детский сад - всего за 2,5 месяца
+                                </li>
+                                <li class="d-flex justify-content-start align-items-center text-start mb-3">
+                                    <img src="./assets/img/svg/placeholder-47x47.svg"
+                                         data-src="./assets/img/calendar.webp"
+                                         data-srcset="./assets/img/calendar.webp"
+                                         loading="lazy" alt="binny" title="native place"
+                                         class="img-fluid me-3 d-block lazy">
+                                    Получите гарантированную прибыль - уже на четвертый месяц после запуска
+                                </li>
+                                <li class="d-flex justify-content-start align-items-center text-start mb-3">
+                                    <img src="./assets/img/svg/placeholder-47x47.svg"
+                                         data-src="./assets/img/calendar.webp"
+                                         data-srcset="./assets/img/calendar.webp"
+                                         loading="lazy" alt="binny" title="native place"
+                                         class="img-fluid me-3 d-block lazy">
+                                    Получите гарантированную прибыль - уже на четвертый месяц после запуска
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto align-self-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="card card_box-shadow p-2 position-relative" style="width: 70%;">
+                            <div class="card px-3 pt-5 pb-3 border-danger">
+                                <div style="height: 8rem"></div>
+                                <img src="./assets/img/svg/placeholder-520x281.svg"
+                                     data-src="./assets/img/img.webp"
+                                     data-srcset="./assets/img/img.webp"
+                                     loading="lazy" alt="binny" title="native place"
+                                     class="card__img img-fluid me-3 d-block lazy position-absolute start-50 top-20 translate-middle">
+                                <div class="card-body">
+                                    <h2 class="fs-3 fw-bold card-title text-start mb-4">Продадим <span
+                                            class="text-danger">абонементы</span>
+                                        в ваш сад еще до открытия!</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="row row-cols-1 row-cols-md-3 rounded-3 mt-3">
+                    <div class="col input-block position-relative mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="img-fluid icon_gray me-auto d-block lazy position-absolute">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <input type="text" class="form-control h-100" placeholder="Ведите имя">
+                    </div>
+                    <div class="col input-block position-relative mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="img-fluid icon_gray me-auto d-block lazy position-absolute">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <input type="text" class="form-control h-100" placeholder="Ведите телефон">
+                    </div>
+                    <div class="col-12 col-md mb-3">
+                        <button type="button"
+                                class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 fw-bold lh-sm btn-lg">
+                            Получить консультацию
+                        </button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Настоящим подтверждаю, что я ознакомлен с <a href="" class="text-black">политикой конфиденциальности</a>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section><div class="section__franchise-what text-center position-relative overflow-hidden bg-light">
+    <div class="container-xxl py-5 position-relative z-1">
+        <div class="d-flex flex-column"
+             x-data="{textH3:'Mы дадим Вам <span class=\'fw-bolder\'>готовую бизнес-систему</span>, рабочие инструменты и нашу поддержку'}">
+            <div class="col">
+                <h2 class="fs-3 fw-bolder text-start mb-4">
+                    Стоимость франшизы и что в нее входит
+                </h2>
+            </div>
+            <div class="col-12 col-lg-5 pe-lg-5">
+                <h3 class="fs-5 text-start lh-sm mb-4" x-html="textH3"></h3>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-end py-4">
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 pt-5 pb-3">
+                    <div class="row justify-content-center">
+                        <h4 class="text-center fw-bolder">PRO</h4>
+                        <div class="card-title border-2 border-bottom border-danger w-50"></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Открытие садика Binny в вашем городе</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                        </ul>
+                        <p class="fw-bold text-start mb-0">Паушальный взнос: 770 000 руб.</p>
+                        <p class="fw-bold text-start mb-0">Для Москвы - 870 000 руб.</p>
+                        <button type="button"
+                                class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 mt-3 fw-bold fs-6 lh-sm btn-lg">
+                            Получить консультацию
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 pt-5 pb-3">
+                    <div class="row justify-content-center">
+                        <h4 class="text-center fw-bolder">PRO</h4>
+                        <div class="card-title border-2 border-bottom border-danger w-50"></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Открытие садика Binny в вашем городе</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                        </ul>
+                        <p class="fw-bold text-start mb-0">Паушальный взнос: 770 000 руб.</p>
+                        <p class="fw-bold text-start mb-0">Для Москвы - 870 000 руб.</p>
+                        <button type="button"
+                                class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 mt-3 fw-bold fs-6 lh-sm btn-lg">
+                            Получить консультацию
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow px-2 pt-5 pb-3">
+                    <div class="row justify-content-center">
+                        <h4 class="text-center fw-bolder">PRO</h4>
+                        <div class="card-title border-2 border-bottom border-danger w-50"></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Открытие садика Binny в вашем городе</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Уникальный современный дизайн, который соответствует концепции экологичности
+                            </li>
+                        </ul>
+                        <p class="fw-bold text-start mb-0">Паушальный взнос: 770 000 руб.</p>
+                        <p class="fw-bold text-start mb-0">Для Москвы - 870 000 руб.</p>
+                        <button type="button"
+                                class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 mt-3 fw-bold fs-6 lh-sm btn-lg">
+                            Получить консультацию
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- <div class="row franchise-what__image start-0 bottom-0 position-absolute">
+        <div class="col-9">
+            <img src="./assets/img/svg/placeholder-806x357.svg"
+                 data-src="./assets/img/img_what.webp"
+                 data-srcset="./assets/img/img_what.webp"
+                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+        </div>
+    </div>-->
+    </div>
+    <div class="container-xxl py-5 position-relative z-0">
+        <div class="row franchise-what__image position-absolute">
+            <div class="col-12 col-sm-10 col-xl-12">
+                <img src="./assets/img/svg/placeholder-806x357.svg"
+                     data-src="./assets/img/img_what.webp"
+                     data-srcset="./assets/img/img_what.webp"
+                     loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+            </div>
+        </div>
+    </div>
+</div><section class="section__calculate_cost py-lg-5"
+         style="background-image: url(./assets/img/fon_lead_form.webp);">
+    <div class="container-xxl py-5">
+        <div class="row justify-content-center">
+            <div class="col col-sm-10 col-lg-8 position-relative mb-5">
+                <h2 class="display-6 fw-bold text-center mb-5">Рассчитайте стоимость детского сада Binny в вашем городе</h2>
+                <div class="card border-0 p-3">
+                    <div class="card rounded-1 p-3 p-lg-5">
+                        <form class="row justify-content-center g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="inputPackage" class="form-label fs-8">Выберите пакет франшизы</label>
+                                <select id="inputPackage" class="form-select">
+                                    <option selected>Pro</option>
+                                    <option>Premium</option>
+                                    <option>All inclusive</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="inputCount" class="form-label fs-8">Количество открываемых садов</label>
+                                <select id="inputCount" class="form-select">
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>свыше 5</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="inputSize" class="form-label fs-8">Численность населения вашего
+                                    города</label>
+                                <select id="inputSize" class="form-select">
+                                    <option selected>до 100000</option>
+                                    <option>от 100000 до 500000</option>
+                                    <option>от 500000 до 1000000</option>
+                                    <option>свыше 1000000</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="inputName" class="form-label fs-8">Имя</label>
+                                <input type="text" class="form-control" id="inputName">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="inputSquare" class="form-label fs-8">Площадь помещения</label>
+                                <select id="inputSquare" class="form-select">
+                                    <option selected>до 100 кв.м</option>
+                                    <option>до 100-150 кв.м</option>
+                                    <option>до 150-200 кв.м</option>
+                                    <option>до 250-300 кв.м</option>
+                                    <option>свыше 300 кв.м</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="inputPhone" class="form-label fs-8">Телефон</label>
+                                <input type="tel" class="form-control" id="inputPhone">
+                            </div>
+                            <div class="col-12 col-lg-8 mt-5">
+                                <button type="button"
+                                        class="btn bg-gradient-danger text-uppercase w-100 text-white py-3 mb-3 fw-bold lh-sm btn-lg">
+                                    Получить расчет
+                                </button>
+                                <div class="d-flex justify-content-start">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                               checked>
+                                        <label class="form-check-label fs-8" for="flexCheckChecked">
+                                            Настоящим подтверждаю, что я ознакомлен с <a href="" class="text-black">политикой
+                                            конфиденциальности</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="flower position-absolute start-0">
+                    <img src="./assets/img/svg/placeholder-317x191.svg"
+                         data-src="./assets/img/flower.webp"
+                         data-srcset="./assets/img/flower.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid me-1 d-block lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section><div class="section__native_place text-center position-relative overflow-hidden bg-light_yellow">
+    <div class="container-xxl py-5 position-relative z-1">
+        <div class="d-flex flex-column"
+             x-data="{textH3:'Современные, дизайнерские, просторные <span class=\'fw-bolder\'>детские сады с уникальной атмосферой, раскрывающей таланты и способности ребенка</span>'}">
+            <div class="col col-lg-9">
+                <h2 class="fs-1 fw-bolder text-start mb-4">
+                    Binny native place - концептуальные решения для развития и оздоровления детей
+                </h2>
+            </div>
+            <div class="col col-lg-9">
+                <h3 class="fs-4 text-start lh-sm mb-4" x-html="textH3"></h3>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 justify-content-start py-4">
+            <div class="col mb-3">
+                <div class="card mb-3 border-0 bg-transparent">
+                    <div class="row flex-column flex-lg-row justify-content-between align-items-center g-0">
+                        <div class="col">
+                            <img src="./assets/img/svg/placeholder-297x171.svg"
+                                 data-src="./assets/img/3.webp"
+                                 data-srcset="./assets/img/3.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h4 class="fs-5 fw-bold card-title text-start">HEALTHY PLACE</h4>
+                                <p class="card-text text-start">Уютное экологичное
+                                    пространство, организация
+                                    сбалансированного и здорового
+                                    питания, натуральные ткани
+                                    и материал, специально
+                                    подобранные интерьеры для
+                                    каждого из пространств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card mb-3 border-0 bg-transparent">
+                    <div class="row flex-column flex-lg-row justify-content-between align-items-center g-0">
+                        <div class="col">
+                            <img src="./assets/img/svg/placeholder-297x171.svg"
+                                 data-src="./assets/img/3.webp"
+                                 data-srcset="./assets/img/3.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h4 class="fs-5 fw-bold card-title text-start">HEALTHY PLACE</h4>
+                                <p class="card-text text-start">Уютное экологичное
+                                    пространство, организация
+                                    сбалансированного и здорового
+                                    питания, натуральные ткани
+                                    и материал, специально
+                                    подобранные интерьеры для
+                                    каждого из пространств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card mb-3 border-0 bg-transparent">
+                    <div class="row flex-column flex-lg-row justify-content-between align-items-center g-0">
+                        <div class="col">
+                            <img src="./assets/img/svg/placeholder-297x171.svg"
+                                 data-src="./assets/img/3.webp"
+                                 data-srcset="./assets/img/3.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h4 class="fs-5 fw-bold card-title text-start">HEALTHY PLACE</h4>
+                                <p class="card-text text-start">Уютное экологичное
+                                    пространство, организация
+                                    сбалансированного и здорового
+                                    питания, натуральные ткани
+                                    и материал, специально
+                                    подобранные интерьеры для
+                                    каждого из пространств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card mb-3 border-0 bg-transparent">
+                    <div class="row flex-column flex-lg-row justify-content-between align-items-center g-0">
+                        <div class="col">
+                            <img src="./assets/img/svg/placeholder-297x171.svg"
+                                 data-src="./assets/img/3.webp"
+                                 data-srcset="./assets/img/3.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h4 class="fs-5 fw-bold card-title text-start">HEALTHY PLACE</h4>
+                                <p class="card-text text-start">Уютное экологичное
+                                    пространство, организация
+                                    сбалансированного и здорового
+                                    питания, натуральные ткани
+                                    и материал, специально
+                                    подобранные интерьеры для
+                                    каждого из пространств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card mb-3 border-0 bg-transparent">
+                    <div class="row flex-column flex-lg-row justify-content-between align-items-center g-0">
+                        <div class="col">
+                            <img src="./assets/img/svg/placeholder-297x171.svg"
+                                 data-src="./assets/img/3.webp"
+                                 data-srcset="./assets/img/3.webp"
+                                 loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h4 class="fs-5 fw-bold card-title text-start">HEALTHY PLACE</h4>
+                                <p class="card-text text-start">Уютное экологичное
+                                    пространство, организация
+                                    сбалансированного и здорового
+                                    питания, натуральные ткани
+                                    и материал, специально
+                                    подобранные интерьеры для
+                                    каждого из пространств.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="section__our-copyrights text-center position-relative overflow-hidden">
+    <div class="container-xxl py-5 position-relative z-1">
+        <div class="d-flex flex-column"
+             x-data="{textH3:'<span class=\'fw-bolder\'>Более 30 развивающих программ,</span> разработанных экспертами в области детского развития'}">
+            <div class="col">
+                <h2 class="fs-2 fw-bolder text-start mb-4">
+                    Наши авторские программы обучения
+                </h2>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3 class="fs-4 text-start lh-sm mb-4" x-html="textH3"></h3>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-lg-5 justify-content-start  py-4">
+            <!--class [.card_box-shadow_red .card_box-shadow_green .card_box-shadow_orange .card_box-shadow_yellow .card_box-shadow_purple]-->
+            <div class="col mb-3">
+                <div class="card card_box-shadow_purple border-5 border-purple border-start-0 border-end-0 border-bottom-0 p-0 pb-3 h-100">
+                    <img src="./assets/img/svg/placeholder-227х169.svg"
+                         data-src="./assets/img/our-copyrights.webp"
+                         data-srcset="./assets/img/our-copyrights.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid w-100 me-auto d-block lazy">
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Оздоровительные методики доктора Бориса
+                            Увайдова</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow_purple border-5 border-purple border-start-0 border-end-0 border-bottom-0 p-0 pb-3 h-100">
+                    <img src="./assets/img/svg/placeholder-227х169.svg"
+                         data-src="./assets/img/our-copyrights.webp"
+                         data-srcset="./assets/img/our-copyrights.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid w-100 me-auto d-block lazy">
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Оздоровительные методики доктора Бориса
+                            Увайдова</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow_purple border-5 border-purple border-start-0 border-end-0 border-bottom-0 p-0 pb-3 h-100">
+                    <img src="./assets/img/svg/placeholder-227х169.svg"
+                         data-src="./assets/img/our-copyrights.webp"
+                         data-srcset="./assets/img/our-copyrights.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid w-100 me-auto d-block lazy">
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Оздоровительные методики доктора Бориса
+                            Увайдова</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow_purple border-5 border-purple border-start-0 border-end-0 border-bottom-0 p-0 pb-3 h-100">
+                    <img src="./assets/img/svg/placeholder-227х169.svg"
+                         data-src="./assets/img/our-copyrights.webp"
+                         data-srcset="./assets/img/our-copyrights.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid w-100 me-auto d-block lazy">
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Оздоровительные методики доктора Бориса
+                            Увайдова</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card card_box-shadow_green border-5 border-green border-start-0 border-end-0 border-bottom-0 p-0 pb-3  h-100">
+                    <img src="./assets/img/svg/placeholder-227х169.svg"
+                         data-src="./assets/img/our-copyrights.webp"
+                         data-srcset="./assets/img/our-copyrights.webp"
+                         loading="lazy" alt="binny" title="native place" class="img-fluid w-100 me-auto d-block lazy">
+                    <div class="card-body">
+                        <h5 class="fw-bold card-title text-start mb-4 fs-5">Оздоровительные методики доктора Бориса
+                            Увайдова</h5>
+                        <ul class="list-group list-group-flush ps-4">
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Оздоровительные программы
+                            </li>
+                            <li class="list-group_red d-flex justify-content-start align-items-start text-start position-relative mb-3 fs-6">
+                                Укрепление иммунитета
+                            </li>
+                        </ul>
+                    </div>
+                    <img src="./assets/img/svg/placeholder-152x211.svg"
+                         data-src="./assets/img/palette.webp"
+                         data-srcset="./assets/img/palette.webp"
+                         loading="lazy" alt="binny" title="native place"
+                         class=" palette__image position-absolute img-fluid me-auto d-block lazy">
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-stretch">
+            <div class="col-12 col-sm-5 col-lg-3 mt-3 mt-lg-0">
+                <a href="" type="button"
+                   class="btn btn-outline-danger text-uppercase w-100 m-0 h-100 text-dark py-3 fw-bold fs-6 lh-sm btn-lg">
+                    Подробней в разделе <span class="text-decoration-underline">"Здоровый садик"</span>
+                </a>
+            </div>
+            <div class="col-12 col-sm-7 col-lg-4 mt-3 mt-lg-0">
+                <button type="button"
+                        class="btn bg-gradient-danger text-uppercase w-100  h-100 text-white py-3 fw-bold fs-6 lh-sm btn-lg">
+                    Просмотреть все программы
+                </button>
+            </div>
+            <div class="col-12 col-lg mt-3 mt-lg-0 link-danger">
+                <div class="card flex-row justify-content-center align-items-center border-red h-100 gap-3">
+                    <div class="col-auto">
+                        <img src="./assets/img/svg/placeholder-24x24.svg"
+                             data-src="./assets/img/download-icon.webp"
+                             data-srcset="./assets/img/download-icon.webp"
+                             loading="lazy" alt="binny" title="native place" class="img-fluid me-auto d-block lazy">
+                    </div>
+                    <div class="col-10 col-md-auto">
+                        <a href="#" class="stretched-link text-danger fw-bolder text-decoration-none">Скачать пробную презентацию всех программ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><footer class="bg-purple pt-5 pb-2">
+
+    <article class="bg-white py-5">
+
+
+    </article>
+</footer>
+
+<!--   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+-->   <!--  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+ <!--  <script src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>-->
+<!--   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>-->
+<!--  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+ <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"></script>
+ <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <script src="assets/js/video-modal.js"></script> -->
+<script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="assets/js/splider.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.3.1/dist/js/splide.cjs.min.js"></script>-->
+<script src="assets/js/app.js"></script>
+<script defer src="assets/js/alpinejs.js"></script>
+
+
+<section class='section-modal'></section>
+</body>
+
+</html>

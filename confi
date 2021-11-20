@@ -1,9 +1,0 @@
-Host github.com
- Hostname ssh.github.com
- Port 443
-
-Host gh-acc2
-   Hostname github.com
-   User git
-   Identityfile ~/.ssh/id_rsa_binny
-   IdentitiesOnly yes
